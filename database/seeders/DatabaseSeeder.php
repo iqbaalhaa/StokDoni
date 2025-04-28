@@ -12,8 +12,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Category::create([
-            'nama' => 'Sembako'
+
+        \App\Models\User::create([
+            'email' => 'admin@gmail.com',
+            'nama' => 'Riddick V.20',
+            'password' => bcrypt('password')
         ]);
     }
 }

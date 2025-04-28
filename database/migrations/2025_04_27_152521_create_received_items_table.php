@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('kode_barang');
             $table->integer('jumlah')->unsigned();
 
+            $table->string('nama');
             $table->foreign('kode_barang')->references('kode_barang')->on('items')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
