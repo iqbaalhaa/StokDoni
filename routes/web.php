@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,5 @@ Route::get('login', [AuthController::class, 'index'])->middleware('guest')->name
 Route::post('login', [AuthController::class, 'authenticate'])->middleware('guest');
 
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth');
+
+Route::resource('item', ItemController::class)->middleware('auth');

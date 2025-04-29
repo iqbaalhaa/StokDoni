@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Category;
+
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -12,7 +14,9 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
+        return view('item.index', [
+            'items' => Item::latest()->get()
+        ]);
     }
 
     /**
@@ -20,7 +24,9 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('item.create', [
+            'categories' => Category::latest()->get()
+        ]);
     }
 
     /**
@@ -28,7 +34,17 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'kode_barang' => 'required|max:10|unique:items',
+            'nama_barang' => 'required|max:100|unique:items',
+            'harga_beli' => 'required|min:0|numeric',
+            'satuan' => 'required|max:100',
+            'nama_category' => 'required'
+        ]);
+
+        Item::create($validated);
+
+        return redirect('item')->with('success', 'Berhasil menginput data');
     }
 
     /**
@@ -36,7 +52,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        
     }
 
     /**
@@ -44,7 +60,10 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        //
+        return view('item.edit', [
+            'item' => $item,
+            'categories' => Category::latest()->get()
+        ]);
     }
 
     /**
@@ -52,7 +71,27 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
-        //
+        $rules = [
+            'kode_barang' => 'required|max:10',
+            'nama_barang' => 'required|max:100',
+            'harga_beli' => 'required|min:0|numeric',
+            'satuan' => 'required|max:100',
+            'nama_category' => 'required'
+        ];
+
+        if ($item->kode_barang != $request->kode_barang) {
+            $rules['kode_barang'] = 'required|max:10|unique:items';
+        }
+
+        if ($item->nama_barang != $request->nama_barang) {
+            $rules['nama_barang'] = 'required|max:100|unique:items';
+        }
+
+        $validated = $request->validate($rules);
+
+        $item->update($validated);
+
+        return redirect('item')->with('success', 'Berhasil mengupdate data');
     }
 
     /**
@@ -60,6 +99,8 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        //
+        $item->delete();
+
+        return back()->with('success', 'Berhasil menghapus data');
     }
 }
