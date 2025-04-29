@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Spica Admin</title>
+    <title>Toko Doni Mendalo</title>
     <!-- base:css -->
     <link rel="stylesheet" href="{{ asset('template/vendors/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('template/vendors/css/vendor.bundle.base.css') }}">
@@ -20,27 +20,6 @@
 
 <body>
     <div class="container-scroller d-flex">
-        <div class="row p-0 m-0 proBanner" id="proBanner">
-            <div class="col-md-12 p-0 m-0">
-                <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
-                    <div class="ps-lg-1">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates,
-                                and more with this template!</p>
-                            <a href="https://www.bootstrapdash.com/product/spica-admin/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo"
-                                target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <a href="https://www.bootstrapdash.com/product/spica-admin/"><i
-                                class="mdi mdi-home me-3 text-white"></i></a>
-                        <button id="bannerClose" class="btn border-0 p-0">
-                            <i class="mdi mdi-close text-white mr-0"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- partial:./partials/_sidebar.html -->
         @include('Partials.sidebar')
         <!-- partial -->
@@ -53,134 +32,18 @@
                         <span class="mdi mdi-menu"></span>
                     </button>
                     <div class="navbar-brand-wrapper">
-                        <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo.svg"
-                                alt="logo" /></a>
-                        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg"
-                                alt="logo" /></a>
+                        <a class="navbar-brand brand-logo" href="index.html"><img src="{{ asset('template/images/logo.png') }}"
+                                alt="logo" style="border-radius: 8px;" /></a>
+                        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('template/images/logo.png') }}"
+                                alt="logo" style="border-radius: 8px;" /></a>
                     </div>
                     <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Welcome back, Brandon Haynes</h4>
                     <ul class="navbar-nav navbar-nav-right">
-                        <li class="nav-item">
-                            <h4 class="mb-0 font-weight-bold d-none d-xl-block">Mar 12, 2019 - Apr 10, 2019</h4>
-                        </li>
-                        <li class="nav-item dropdown me-1">
-                            <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
-                                id="messageDropdown" href="#" data-bs-toggle="dropdown">
-                                <i class="mdi mdi-calendar mx-0"></i>
-                                <span class="count bg-info">2</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                                aria-labelledby="messageDropdown">
-                                <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
-                                    </div>
-                                    <div class="preview-item-content flex-grow">
-                                        <h6 class="preview-subject ellipsis font-weight-normal">David Grey
-                                        </h6>
-                                        <p class="font-weight-light small-text text-muted mb-0">
-                                            The meeting is cancelled
-                                        </p>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
-                                    </div>
-                                    <div class="preview-item-content flex-grow">
-                                        <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
-                                        </h6>
-                                        <p class="font-weight-light small-text text-muted mb-0">
-                                            New product launch
-                                        </p>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
-                                    </div>
-                                    <div class="preview-item-content flex-grow">
-                                        <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
-                                        </h6>
-                                        <p class="font-weight-light small-text text-muted mb-0">
-                                            Upcoming board meeting
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown me-2">
-                            <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center"
-                                id="notificationDropdown" href="#" data-bs-toggle="dropdown">
-                                <i class="mdi mdi-email-open mx-0"></i>
-                                <span class="count bg-danger">1</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                                aria-labelledby="notificationDropdown">
-                                <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-success">
-                                            <i class="mdi mdi-information mx-0"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content">
-                                        <h6 class="preview-subject font-weight-normal">Application Error</h6>
-                                        <p class="font-weight-light small-text mb-0 text-muted">
-                                            Just now
-                                        </p>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-warning">
-                                            <i class="mdi mdi-settings mx-0"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content">
-                                        <h6 class="preview-subject font-weight-normal">Settings</h6>
-                                        <p class="font-weight-light small-text mb-0 text-muted">
-                                            Private message
-                                        </p>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-info">
-                                            <i class="mdi mdi-account-box mx-0"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content">
-                                        <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                                        <p class="font-weight-light small-text mb-0 text-muted">
-                                            2 days ago
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-                        data-toggle="offcanvas">
-                        <span class="mdi mdi-menu"></span>
-                    </button>
-                </div>
-                <div class="navbar-menu-wrapper navbar-search-wrapper d-none d-lg-flex align-items-center">
-                    <ul class="navbar-nav mr-lg-2">
-                        <li class="nav-item nav-search d-none d-lg-block">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search Here..."
-                                    aria-label="search" aria-describedby="search">
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav navbar-nav-right">
-                        <li class="nav-item nav-profile dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                    <li class="nav-item nav-profile dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown"
                                 id="profileDropdown">
-                                <img src="images/faces/face5.jpg" alt="profile" />
-                                <span class="nav-profile-name">Eleanor Richardson</span>
+                                <img src="{{ asset('template/images/faces/face5.jpg') }}" alt="profile" style="border-radius: 8px;" />
+                                <span class="nav-profile-name ms-3">Eleanor Richardson</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                                 aria-labelledby="profileDropdown">
@@ -193,21 +56,6 @@
                                     Logout
                                 </a>
                             </div>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link icon-link">
-                                <i class="mdi mdi-plus-circle-outline"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link icon-link">
-                                <i class="mdi mdi-web"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link icon-link">
-                                <i class="mdi mdi-clock-outline"></i>
-                            </a>
                         </li>
                     </ul>
                 </div>
@@ -224,11 +72,8 @@
                         <div class="card-body">
                             <div class="d-sm-flex justify-content-center justify-content-sm-between py-2">
                                 <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright ©
-                                    <a href="https://www.bootstrapdash.com/" target="_blank">bootstrapdash.com
-                                    </a>2021</span>
-                                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Only the best
-                                    <a href="https://www.bootstrapdash.com/" target="_blank"> Bootstrap dashboard </a>
-                                    templates</span>
+                                    <a href="#" target="_blank">Toko Doni
+                                    </a>2025</span>
                             </div>
                         </div>
                     </div>

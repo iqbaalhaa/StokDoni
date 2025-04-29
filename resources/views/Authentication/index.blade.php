@@ -26,7 +26,7 @@
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                             <div class="brand-logo">
-                                <img src="{{ asset('template/images/logo-dark.svg') }}" alt="logo">
+                                <img src="{{ asset('template/images/logo1.png') }}" alt="logo">
                             </div>
 
                             @if (session()->has('loginError'))
@@ -35,13 +35,13 @@
                                 </div>
                             @endif
 
-                            <h4>Hello! let's get started</h4>
-                            <h6 class="font-weight-light">Sign in to continue.</h6>
+                            <h4>TOKO DONI MENDALO</h4>
+                            <h6 class="font-weight-light">Masuk Untuk Melanjutkan</h6>
                             <form class="pt-3" method="POST" action="{{ url('login') }}">
                                 @csrf
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-lg" name="email"
-                                        id="exampleInputEmail1" placeholder="Username">
+                                        id="exampleInputEmail1" placeholder="Email">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-lg"
