@@ -3,7 +3,6 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ItemController;
-use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ReceivedItemController;
 
 use App\Http\Controllers\SupplierController;

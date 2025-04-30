@@ -64,8 +64,8 @@
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="{{ url('supplier') }}">Daftar Supplier</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Riwayat Pembelian</a>
-                    </li>
+                    {{-- <li class="nav-item"> <a class="nav-link" href="#">Riwayat Pembelian</a>
+                    </li> --}}
                 </ul>
             </div>
         </li>

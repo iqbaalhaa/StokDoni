@@ -16,7 +16,6 @@ class ReceivedItem extends Model
     ];
 
     public function barang() {
-        // return $this->belongsTo('kode_barang', 'kode_barang', Item::class);
         return $this->belongsTo(Item::class, 'kode_barang', 'kode_barang');
     }
 

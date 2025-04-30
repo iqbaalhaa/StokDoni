@@ -35,6 +35,10 @@
                                         <td>{{ $item->no_wa }}</td>
                                         <td>
                                             <div class="d-flex gap-4">
+                                                <a href="{{ url('supplier/' . $item->id) }}" class="btn btn-info"
+                                                    style="padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px"><i
+                                                        class="bi bi-pencil-square"></i></a>
+
                                                 <a href="{{ url('supplier/' . $item->id . '/edit') }}"
                                                     class="btn btn-warning"
                                                     style="padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px"><i

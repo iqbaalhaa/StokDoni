@@ -35,7 +35,7 @@ class SupplierController extends Controller
             'alamat' => 'required|max:200',
             'no_wa' => 'required|max:20'
         ]);
-
+        
         Supplier::create($validated);
 
         return redirect('supplier')->with('success', 'Berhasil menginput data');
@@ -46,7 +46,9 @@ class SupplierController extends Controller
      */
     public function show(Supplier $supplier)
     {
-        //
+        return view('supplier.showRecord', [
+            'supplier' => $supplier->load('itemReceived.barang')
+        ]);
     }
 
     /**

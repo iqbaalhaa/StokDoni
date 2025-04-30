@@ -52,7 +52,6 @@ class ReceivedItemController extends Controller
      */
     public function show(ReceivedItem $receivedItem)
     {
-        //
     }
 
     /**

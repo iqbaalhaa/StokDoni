@@ -13,9 +13,9 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
-                    
+
                     <div class="d-flex justify-content-end mb-3">
-                    <a href="{{ url('item/create') }}" class="btn btn-primary">Tambah Data Barang</a>
+                        <a href="{{ url('item/create') }}" class="btn btn-primary">Tambah Data Barang</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-hover">
@@ -41,8 +41,8 @@
                                         <td>{{ $item->satuan }}</td>
                                         <td>
                                             <div class="d-flex gap-4">
-                                                <a href="{{ url('item/' . $item->id . '/edit') }}" class="btn btn-warning btn-sm"><i
-                                                        class="mdi mdi-pencil"></i></a>
+                                                <a href="{{ url('item/' . $item->id . '/edit') }}"
+                                                    class="btn btn-warning btn-sm"><i class="mdi mdi-pencil"></i></a>
 
                                                 <form action="{{ url('item/' . $item->id) }}" method="POST">
                                                     @csrf

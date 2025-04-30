@@ -15,4 +15,9 @@ class Supplier extends Model
         'no_wa'
     ];
 
+    public function itemReceived() {
+        // return $this->hasMany('nama', 'nama_supplier', Supplier::class);
+        return $this->hasMany(ReceivedItem::class, 'nama_supplier', 'nama');
+    }
+
 }
