@@ -22,7 +22,7 @@
                                     <th>No</th>
                                     <th>Kode</th>
                                     <th>Nama</th>
-                                    <th>Category</th>
+                                    <th>Kategory</th>
                                     <th>Harga</th>
                                     <th>Satuan</th>
                                     <th>Aksi</th>
