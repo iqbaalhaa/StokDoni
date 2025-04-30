@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ReceivedItemController;
 
 use App\Http\Controllers\SupplierController;
@@ -32,7 +33,3 @@ Route::post('login', [AuthController::class, 'authenticate'])->middleware('guest
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth');
 
 Route::resource('item', ItemController::class)->middleware('auth');
-
-Route::resource('received-item', ReceivedItemController::class)->middleware('auth');
-
-Route::resource('supplier', SupplierController::class)->middleware('auth');
