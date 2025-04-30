@@ -18,9 +18,9 @@
             <span></span>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                aria-controls="ui-basic">
-                <i class="mdi mdi-palette menu-icon"></i>
+            <a class="nav-link" data-bs-toggle="collapse" href="#master-data" aria-expanded="false"
+                aria-controls="master-data">
+                <i class="mdi mdi-database menu-icon"></i>
                 <span class="menu-title">Master Data</span>
                 <i class="menu-arrow"></i>
             </a>
