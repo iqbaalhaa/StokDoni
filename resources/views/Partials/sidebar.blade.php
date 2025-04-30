@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item sidebar-category">
-            <p>Navigation</p>
+            <p></p>
             <span></span>
         </li>
 
@@ -12,11 +12,13 @@
                 <div class="badge badge-info badge-pill">2</div>
             </a>
         </li>
+        
         <li class="nav-item sidebar-category">
-            <p>Components</p>
+            <p>Menu</p>
             <span></span>
         </li>
         <li class="nav-item">
+<<<<<<< HEAD
             <a class="nav-link" href="{{ url('category') }}">
                 <i class="mdi mdi-view-headline menu-icon"></i>
                 <span class="menu-title">Category</span>
@@ -43,83 +45,100 @@
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
                 aria-controls="ui-basic">
+=======
+            <a class="nav-link" data-bs-toggle="collapse" href="#master-data" aria-expanded="false"
+                aria-controls="master-data">
+>>>>>>> 344ff28f7d4b2b8fd9b70ce1d7c9a767cbecde6c
                 <i class="mdi mdi-palette menu-icon"></i>
-                <span class="menu-title">UI Elements</span>
+                <span class="menu-title">Master Data</span>
                 <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="master-data">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('item') }}">Data Barang</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('category') }}">Kategori Barang</a>
                     </li>
                 </ul>
             </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
-                <i class="mdi mdi-view-headline menu-icon"></i>
-                <span class="menu-title">Form elements</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
-                <i class="mdi mdi-chart-pie menu-icon"></i>
-                <span class="menu-title">Charts</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
-                <i class="mdi mdi-grid-large menu-icon"></i>
-                <span class="menu-title">Tables</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
-                <i class="mdi mdi-emoticon menu-icon"></i>
-                <span class="menu-title">Icons</span>
-            </a>
-        </li>
-        <li class="nav-item sidebar-category">
-            <p>Pages</p>
-            <span></span>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                <i class="mdi mdi-account menu-icon"></i>
-                <span class="menu-title">User Pages</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a>
-                    </li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a>
-                    </li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register
-                            2 </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html">
-                            Lockscreen </a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item sidebar-category">
-            <p>Apps</p>
-            <span></span>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="docs/documentation.html">
-                <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-                <span class="menu-title">Documentation</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="https://www.bootstrapdash.com/product/spica-admin/">
-                <button class="btn bg-danger btn-sm menu-title">Upgrade to pro</button>
-            </a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#transaksi" aria-expanded="false"
+                aria-controls="transaksi">
+                <i class="mdi mdi-cart menu-icon"></i>
+                <span class="menu-title">Transaksi</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="transaksi">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="#">Stok Masuk</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Stok Keluar</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Stok Opname</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#supplier" aria-expanded="false"
+                aria-controls="supplier">
+                <i class="mdi mdi-package-variant menu-icon"></i>
+                <span class="menu-title">Supplier</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="supplier">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="#">Daftar Supplier</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Riwayat Pembelian</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#pelanggan" aria-expanded="false"
+                aria-controls="pelanggan">
+                <i class="mdi mdi-account-group menu-icon"></i>
+                <span class="menu-title">Pelanggan</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="pelanggan">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="#">Daftar Pelanggan</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Riwayat Penjualan</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#laporan" aria-expanded="false"
+                aria-controls="laporan">
+                <i class="mdi mdi-book-multiple menu-icon"></i>
+                <span class="menu-title">Laporan</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="laporan">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="#">Laporan Stok</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Laporan Barang Masuk</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Laporan Barang Keluar</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Laporan Pembelian</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Laporan Penjualan</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        
         <li class="nav-item">
             <form class="nav-link" action="{{ url('logout') }}" method="POST">
                 @csrf
