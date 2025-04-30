@@ -12,7 +12,12 @@ class ReceivedItem extends Model
     protected $fillable = [
         'kode_barang',
         'jumlah',
-        'nama'
+        'nama_supplier'
     ];
+
+    public function barang() {
+        // return $this->belongsTo('kode_barang', 'kode_barang', Item::class);
+        return $this->belongsTo(Item::class, 'kode_barang', 'kode_barang');
+    }
 
 }

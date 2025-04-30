@@ -33,3 +33,7 @@ Route::post('login', [AuthController::class, 'authenticate'])->middleware('guest
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth');
 
 Route::resource('item', ItemController::class)->middleware('auth');
+
+Route::resource('supplier', SupplierController::class)->middleware('auth');
+
+Route::resource('received-item', ReceivedItemController::class)->middleware('auth');
