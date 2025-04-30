@@ -79,7 +79,7 @@
             </a>
             <div class="collapse" id="pelanggan">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="#">Daftar Pelanggan</a>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('customer.index') }}">Daftar Pelanggan</a>
                     </li>
                     <li class="nav-item"> <a class="nav-link" href="#">Riwayat Penjualan</a>
                     </li>

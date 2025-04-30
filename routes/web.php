@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +30,5 @@ Route::post('login', [AuthController::class, 'authenticate'])->middleware('guest
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth');
 
 Route::resource('item', ItemController::class)->middleware('auth');
+
+Route::resource('customer', CustomerController::class);
