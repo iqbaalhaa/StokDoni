@@ -12,7 +12,9 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        //
+        return view('supplier.index', [
+            'items' => Supplier::latest()->get()
+        ]);
     }
 
     /**
@@ -20,7 +22,7 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        //
+        return view('supplier.create');
     }
 
     /**
@@ -28,7 +30,15 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama' => 'required|max:200|unique:suppliers',
+            'alamat' => 'required|max:200',
+            'no_wa' => 'required|max:20'
+        ]);
+
+        Supplier::create($validated);
+
+        return redirect('supplier')->with('success', 'Berhasil menginput data');
     }
 
     /**
@@ -44,7 +54,9 @@ class SupplierController extends Controller
      */
     public function edit(Supplier $supplier)
     {
-        //
+        return view('supplier.edit', [
+            'item' => $supplier
+        ]);
     }
 
     /**
@@ -52,7 +64,26 @@ class SupplierController extends Controller
      */
     public function update(Request $request, Supplier $supplier)
     {
-        //
+        $rules = [
+            'nama' => 'required|max:200',
+            'alamat' => 'required|max:200',
+            'no_wa' => 'required|max:20'   
+        ];
+
+        if ($request->nama != $supplier->nama) {
+            $rules['nama'] = 'required|max:200|unique:suppliers';
+        }
+
+        if ($request->no_wa != $supplier->no_wa) {
+            $rules['no_wa'] = 'required|max:200|unique:suppliers';
+        }
+
+        $validated = $request->validate($rules);
+
+        $supplier->update($validated);
+
+        return redirect('supplier')->with('success', 'Berhasil mengupdate data');
+
     }
 
     /**
@@ -60,6 +91,8 @@ class SupplierController extends Controller
      */
     public function destroy(Supplier $supplier)
     {
-        //
+        $supplier->delete();
+
+        return back()->with('success', 'Berhasil mengupdate data');
     }
 }

@@ -12,52 +12,23 @@
                 <div class="badge badge-info badge-pill">2</div>
             </a>
         </li>
-        
+
         <li class="nav-item sidebar-category">
             <p>Menu</p>
             <span></span>
         </li>
         <li class="nav-item">
-<<<<<<< HEAD
-            <a class="nav-link" href="{{ url('category') }}">
-                <i class="mdi mdi-view-headline menu-icon"></i>
-                <span class="menu-title">Category</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ url('item') }}">
-                <i class="mdi mdi-view-headline menu-icon"></i>
-                <span class="menu-title">Item</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ url('supplier') }}">
-                <i class="mdi mdi-view-headline menu-icon"></i>
-                <span class="menu-title">Supplier</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ url('received-item') }}">
-                <i class="mdi mdi-view-headline menu-icon"></i>
-                <span class="menu-title">Received Item</span>
-            </a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
                 aria-controls="ui-basic">
-=======
-            <a class="nav-link" data-bs-toggle="collapse" href="#master-data" aria-expanded="false"
-                aria-controls="master-data">
->>>>>>> 344ff28f7d4b2b8fd9b70ce1d7c9a767cbecde6c
                 <i class="mdi mdi-palette menu-icon"></i>
                 <span class="menu-title">Master Data</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="master-data">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ url('item') }}">Data Barang</a>
-                    </li>
                     <li class="nav-item"> <a class="nav-link" href="{{ url('category') }}">Kategori Barang</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('item') }}">Data Barang</a>
                     </li>
                 </ul>
             </div>
@@ -72,7 +43,7 @@
             </a>
             <div class="collapse" id="transaksi">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="#">Stok Masuk</a>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('received-item') }}">Stok Masuk</a>
                     </li>
                     <li class="nav-item"> <a class="nav-link" href="#">Stok Keluar</a>
                     </li>
@@ -91,7 +62,7 @@
             </a>
             <div class="collapse" id="supplier">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="#">Daftar Supplier</a>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('supplier') }}">Daftar Supplier</a>
                     </li>
                     <li class="nav-item"> <a class="nav-link" href="#">Riwayat Pembelian</a>
                     </li>
@@ -117,8 +88,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#laporan" aria-expanded="false"
-                aria-controls="laporan">
+            <a class="nav-link" data-bs-toggle="collapse" href="#laporan" aria-expanded="false" aria-controls="laporan">
                 <i class="mdi mdi-book-multiple menu-icon"></i>
                 <span class="menu-title">Laporan</span>
                 <i class="menu-arrow"></i>
@@ -138,7 +108,7 @@
                 </ul>
             </div>
         </li>
-        
+
         <li class="nav-item">
             <form class="nav-link" action="{{ url('logout') }}" method="POST">
                 @csrf
