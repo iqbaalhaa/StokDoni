@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class ReceivedItem extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'kode_barang',
+        'jumlah',
+        'nama'
+    ];
+
 }

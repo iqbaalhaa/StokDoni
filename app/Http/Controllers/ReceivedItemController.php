@@ -12,7 +12,9 @@ class ReceivedItemController extends Controller
      */
     public function index()
     {
-        //
+        return view('received.index', [
+            'items' => ReceivedItem::latest()->get()
+        ]);
     }
 
     /**
@@ -20,7 +22,7 @@ class ReceivedItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('received.create');
     }
 
     /**
