@@ -12,7 +12,7 @@ class ReceivedItemController extends Controller
      */
     public function index()
     {
-        //
+        // return view('')
     }
 
     /**
