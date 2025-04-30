@@ -14,6 +14,14 @@ return new class extends Migration
         Schema::create('received_items', function (Blueprint $table) {
             $table->id();
 
+            // $table->string('kode_barang');
+            // $table->integer('jumlah')->unsigned();
+
+            // $table->string('nama_supplier');
+
+            // $table->foreign('nama_supplier')->references('nama')->on('suppliers')->cascadeOnDelete()->cascadeOnUpdate();
+            // $table->foreign('kode_barang')->references('kode_barang')->on('items')->cascadeOnDelete()->cascadeOnUpdate();
+
             $table->string('kode_barang');
             $table->integer('jumlah')->unsigned();
 
@@ -22,6 +30,7 @@ return new class extends Migration
             
             $table->foreign('kode_barang')->references('kode_barang')->on('items')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('nama_supplier')->references('nama')->on('suppliers')->cascadeOnDelete()->cascadeOnUpdate();
+
             $table->timestamps();
         });
     }

@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('costumers', function (Blueprint $table) {
             $table->id();
+            $table->string('nama')->unique();
+            $table->string('no_wa', 20);
+            $table->string('alamat');
             $table->timestamps();
         });
     }

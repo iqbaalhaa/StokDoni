@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CostumerController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ReceivedItemController;
 
 use App\Http\Controllers\SupplierController;
+use App\Models\Costumer;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,3 +38,5 @@ Route::resource('item', ItemController::class)->middleware('auth');
 Route::resource('supplier', SupplierController::class)->middleware('auth');
 
 Route::resource('received-item', ReceivedItemController::class)->middleware('auth');
+
+Route::resource('costumer', CostumerController::class)->middleware('auth');

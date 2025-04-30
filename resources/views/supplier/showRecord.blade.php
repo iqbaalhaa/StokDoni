@@ -22,6 +22,7 @@
                                     <th>No</th>
                                     <th>Kode</th>
                                     <th>Nama Barang</th>
+                                    <th>Harga</th>
                                     <th>Jumlah</th>
                                     <th>Total Harga</th>
                                 </tr>
@@ -33,6 +34,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->kode_barang }}</td>
                                         <td>{{ $item->barang->nama_barang }}</td>
+                                        <td>{{ $item->barang->harga_beli }}</td>
                                         <td>{{ $item->jumlah }}</td>
                                         <td>{{ $item->barang->harga_beli * $item->jumlah }}</td>
                                     </tr>

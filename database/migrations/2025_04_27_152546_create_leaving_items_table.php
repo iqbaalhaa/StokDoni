@@ -14,7 +14,12 @@ return new class extends Migration
         Schema::create('leaving_items', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('item_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('kode_barang');
+            $table->integer('jumlah')->unsigned();
+            $table->string('nama_costumer');
+            
+            $table->foreign('kode_barang')->references('kode_barang')->on('items')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('nama_costumer')->references('nama')->on('costumers')->cascadeOnDelete()->cascadeOnUpdate();
 
             $table->timestamps();
         });
