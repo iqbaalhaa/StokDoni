@@ -5,16 +5,16 @@
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Create Received Item</h4>
-                    <form class="forms-sample" method="POST" action="{{ url('received-item') }}">
+                    <h4 class="card-title">Edit Leaving Item</h4>
+                    <form class="forms-sample" method="POST" action="{{ url('leaving-item/' . $leavingItem->id) }}">
                         @csrf
-
+                        @method('PUT')
                         <div class="form-group">
                             <label for="kode_barang">Kode Barang</label>
                             <select class="form-control " name="kode_barang" id="kode_barang">
                                 <option value="">Pilih</option>
                                 @foreach ($items as $item)
-                                    <option value="{{ $item->kode_barang }}" @selected(@old('kode_barang') === $item->kode_barang)>
+                                    <option value="{{ $item->kode_barang }}" @selected(@old('kode_barang', $leavingItem->kode_barang) === $item->kode_barang)>
                                         {{ $item->kode_barang . ' - (' . $item->nama_barang . ')' }}
                                     </option>
                                 @endforeach
@@ -28,23 +28,24 @@
                         <div class="form-group">
                             <label for="jumlah">Jumlah</label>
                             <input type="text" class="form-control @error('jumlah') is-invalid @enderror" name="jumlah"
-                                id="jumlah" placeholder="jumlah">
+                                id="jumlah" placeholder="jumlah" min="1"
+                                value="{{ @old('jumlah', $leavingItem->jumlah) }}">
                             @error('jumlah')
                                 <div class="invalid-feedback text-red">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="form-group">
-                            <label for="nama_supplier">Supplier</label>
-                            <select class="form-control " name="nama_supplier" id="nama_supplier">
+                            <label for="nama_costumer">Costumer</label>
+                            <select class="form-control " name="nama_costumer" id="nama_costumer">
                                 <option value="">Pilih</option>
-                                @foreach ($suppliers as $item)
-                                    <option value="{{ $item->nama }}" @selected(@old('nama_supplier') === $item->nama)>{{ $item->nama }}
+                                @foreach ($costumers as $item)
+                                    <option value="{{ $item->nama }}" @selected(@old('nama_costumer', $leavingItem->nama_costumer) === $item->nama)>{{ $item->nama }}
                                     </option>
                                 @endforeach
                             </select>
 
-                            @error('nama_supplier')
+                            @error('nama_costumer')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>

@@ -16,4 +16,8 @@ class Costumer extends Model
         'no_wa',
         'alamat'
     ];
+
+    public function itemLeaving() {
+        return $this->hasMany(LeavingItem::class, 'nama_costumer', 'nama');
+    }
 }

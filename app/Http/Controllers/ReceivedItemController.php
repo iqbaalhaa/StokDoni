@@ -37,8 +37,8 @@ class ReceivedItemController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'kode_barang' => 'required',
-            'jumlah' => 'required|numeric',
+            'kode_barang' => 'required|max:10',
+            'jumlah' => 'required|numeric|min:1',
             'nama_supplier' => 'required'
         ]);
 
@@ -72,8 +72,8 @@ class ReceivedItemController extends Controller
     public function update(Request $request, ReceivedItem $receivedItem)
     {
         $validated = $request->validate([
-            'kode_barang' => 'required',
-            'jumlah' => 'required|numeric',
+            'kode_barang' => 'required|max:10',
+            'jumlah' => 'required|numeric|min:1',
             'nama_supplier' => 'required'
         ]);
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Costumer;
+use App\Models\Item;
 use App\Models\LeavingItem;
 use Illuminate\Http\Request;
 
@@ -12,7 +14,9 @@ class LeavingItemController extends Controller
      */
     public function index()
     {
-        //
+        return view('leaved.index', [
+            'items' => LeavingItem::latest()->get()
+        ]);
     }
 
     /**
@@ -20,7 +24,10 @@ class LeavingItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('leaved.create', [
+            'costumers' => Costumer::latest()->get(),
+            'items' => Item::latest()->get()
+        ]);
     }
 
     /**
@@ -28,7 +35,15 @@ class LeavingItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'kode_barang' => 'required|max:10',
+            'jumlah' => 'required|numeric|min:1',
+            'nama_costumer' => 'required'
+        ]);
+
+        LeavingItem::create($validated);
+
+        return redirect('leaving-item')->with('success', 'Berhasil menginput data');
     }
 
     /**
@@ -44,7 +59,11 @@ class LeavingItemController extends Controller
      */
     public function edit(LeavingItem $leavingItem)
     {
-        //
+        return view('leaved.edit', [
+            'leavingItem' => $leavingItem, 
+            'costumers' => Costumer::latest()->get(),
+            'items' => Item::latest()->get()
+        ]);
     }
 
     /**
@@ -52,7 +71,15 @@ class LeavingItemController extends Controller
      */
     public function update(Request $request, LeavingItem $leavingItem)
     {
-        //
+        $validated = $request->validate([
+            'kode_barang' => 'required|max:10',
+            'jumlah' => 'required|numeric|min:1',
+            'nama_costumer' => 'required'
+        ]);
+
+        $leavingItem->update($validated);
+
+        return redirect('leaving-item')->with('success', 'Berhasil mengupdate data');
     }
 
     /**
@@ -60,6 +87,8 @@ class LeavingItemController extends Controller
      */
     public function destroy(LeavingItem $leavingItem)
     {
-        //
+        $leavingItem->delete();
+
+        return back()->with('success', 'Berhasil menghapus data');
     }
 }

@@ -46,7 +46,7 @@ class CostumerController extends Controller
      */
     public function show(Costumer $costumer)
     {
-        //
+        return $costumer->load('itemLeaving');
     }
 
     /**

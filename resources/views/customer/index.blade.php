@@ -38,6 +38,10 @@
                                             <td>{{ $customer->no_wa }}</td>
                                             <td>{{ $customer->alamat }}</td>
                                             <td>
+                                                <a href="{{ url('costumer/' . $customer->id) }}"
+                                                    class="btn btn-info btn-sm">
+                                                    <i class="mdi mdi-pencil"></i>
+                                                </a>
                                                 <a href="{{ url('costumer/' . $customer->id . '/edit') }}"
                                                     class="btn btn-warning btn-sm">
                                                     <i class="mdi mdi-pencil"></i>
