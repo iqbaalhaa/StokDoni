@@ -91,4 +91,15 @@ class LeavingItemController extends Controller
 
         return back()->with('success', 'Berhasil menghapus data');
     }
+
+    public function cetak(Request $request) {
+        $data = LeavingItem::with('barang')->whereBetween('created_at', [$request->tanggal_awal, $request->tanggal_akhir])->latest()->get();       
+        
+        // return $data;
+        return view('leaved.cetak', [
+            'data' => $data,
+            'tanggal_awal' => $request->tanggal_awal,
+            'tanggal_akhir' => $request->tanggal_akhir
+        ]);
+    }
 }

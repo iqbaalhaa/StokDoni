@@ -44,3 +44,10 @@ Route::resource('received-item', ReceivedItemController::class)->middleware('aut
 Route::resource('leaving-item', LeavingItemController::class)->middleware('auth');
 
 Route::resource('costumer', CostumerController::class)->middleware('auth');
+
+Route::get('/opname-stok', [ItemController::class, 'opnameStok'])->middleware('auth');
+
+// Cetak :
+Route::post('cetak-opname', [ItemController::class, 'cetakOpname'])->middleware('auth');
+Route::post('cetak-received-item', [ReceivedItemController::class, 'cetak'])->middleware('auth');
+Route::post('cetak-leaving-item', [LeavingItemController::class, 'cetak'])->middleware('auth');

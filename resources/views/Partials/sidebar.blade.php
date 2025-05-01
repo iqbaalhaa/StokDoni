@@ -45,9 +45,9 @@
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="{{ url('received-item') }}">Stok Masuk</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Stok Keluar</a>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('leaving-item') }}">Stok Keluar</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Stok Opname</a>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('opname-stok') }}">Stok Opname</a>
                     </li>
                 </ul>
             </div>
@@ -81,13 +81,13 @@
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="{{ url('costumer') }}">Daftar Pelanggan</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Riwayat Penjualan</a>
-                    </li>
+                    {{-- <li class="nav-item"> <a class="nav-link" href="#">Riwayat Penjualan</a>
+                    </li> --}}
                 </ul>
             </div>
         </li>
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#laporan" aria-expanded="false" aria-controls="laporan">
                 <i class="mdi mdi-book-multiple menu-icon"></i>
                 <span class="menu-title">Laporan</span>
@@ -107,7 +107,7 @@
                     </li>
                 </ul>
             </div>
-        </li>
+        </li> --}}
 
         <li class="nav-item">
             <form class="nav-link" action="{{ url('logout') }}" method="POST">

@@ -46,7 +46,9 @@ class CostumerController extends Controller
      */
     public function show(Costumer $costumer)
     {
-        return $costumer->load('itemLeaving');
+        return view('customer.showRecord', [
+            'costumer' => $costumer->load('itemLeaving')
+        ]);
     }
 
     /**
@@ -56,7 +58,7 @@ class CostumerController extends Controller
     {
 
         return view('customer.edit', [
-            'customer' => $costumer
+            'costumer' => $costumer
         ]);
     }
 

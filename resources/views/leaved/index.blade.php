@@ -15,6 +15,37 @@
                     @endif
 
                     <a href="{{ url('leaving-item/create') }}" class="btn btn-primary">Add</a>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Cetak
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cetak Laporan</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <form action="{{ url('cetak-leaving-item') }}" method="POST">
+                                    <div class="modal-body">
+                                        <p>Masukan tanggal awal dan akhir</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        @csrf
+                                        <input type="date" class="form-control" name="tanggal_awal">
+                                        <input type="date" class="form-control" name="tanggal_akhir">
+                                        <button type="submit" class="btn btn-primary">Cetak</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>

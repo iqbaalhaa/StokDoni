@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Category;
+use App\Models\ReceivedItem;
+use App\Models\LeavingItem;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use function PHPUnit\Framework\isEmpty;
 
 class ItemController extends Controller
 {
@@ -102,5 +106,76 @@ class ItemController extends Controller
         $item->delete();
 
         return back()->with('success', 'Berhasil menghapus data');
+    }
+
+    public function opnameStok() {
+        $barangMasuk = ReceivedItem::with('barang')->select('kode_barang', DB::raw('SUM(jumlah) as jumlah'))->groupBy('kode_barang')->get();
+        $barangKeluar = LeavingItem::select('kode_barang', DB::raw('SUM(jumlah) as jumlah'))->groupBy('kode_barang')->get();
+
+        $getIndexBarangKeluar = [];
+
+        $getSelisih = [];
+
+        // Looping: barangMasuk -> cari kode_barang_masuk didalam $getIndexBarangKeluar, jika ada ambil indexnya -> lalu hitung selisihnya :
+        foreach($barangKeluar as $item) {
+            $getIndexBarangKeluar[] = $item->kode_barang;
+        }
+        
+        for($i = 0; $i < count($barangMasuk); $i++) {
+
+            $getIndex = array_search($barangMasuk[$i]['kode_barang'], $getIndexBarangKeluar); 
+            if($getIndex > -1) {
+                $getSelisih[$i]['kode_barang'] = $barangMasuk[$i]->kode_barang; 
+                $getSelisih[$i]['sisa'] = $barangMasuk[$i]->jumlah - $barangKeluar[$getIndex]['jumlah']; 
+                $getSelisih[$i]['nama_barang'] = $barangMasuk[$i]->barang->nama_barang;
+                $getSelisih[$i]['kategori'] = $barangMasuk[$i]->barang->nama_category;
+                $getSelisih[$i]['satuan'] = $barangMasuk[$i]->barang->satuan;
+            } else {
+                $getSelisih[$i]['kode_barang'] = $barangMasuk[$i]->jumlah;
+                $getSelisih[$i]['sisa'] = $barangMasuk[$i]->jumlah;
+                $getSelisih[$i]['nama_barang'] = $barangMasuk[$i]->barang->nama_barang;
+                $getSelisih[$i]['kategori'] = $barangMasuk[$i]->barang->nama_category;
+                $getSelisih[$i]['satuan'] = $barangMasuk[$i]->barang->satuan;
+            }
+        }
+        return view('item.opname', [
+            'items' => $getSelisih
+        ]);
+    }
+
+    public function cetakOpname() {
+        $barangMasuk = ReceivedItem::with('barang')->select('kode_barang', DB::raw('SUM(jumlah) as jumlah'))->groupBy('kode_barang')->get();
+        $barangKeluar = LeavingItem::select('kode_barang', DB::raw('SUM(jumlah) as jumlah'))->groupBy('kode_barang')->get();
+
+        $getIndexBarangKeluar = [];
+
+        $getSelisih = [];
+
+        // Looping: barangMasuk -> cari kode_barang_masuk didalam $getIndexBarangKeluar, jika ada ambil indexnya -> lalu hitung selisihnya :
+        foreach($barangKeluar as $item) {
+            $getIndexBarangKeluar[] = $item->kode_barang;
+        }
+        
+        for($i = 0; $i < count($barangMasuk); $i++) {
+
+            $getIndex = array_search($barangMasuk[$i]['kode_barang'], $getIndexBarangKeluar); 
+            if($getIndex > -1) {
+                $getSelisih[$i]['kode_barang'] = $barangMasuk[$i]->kode_barang; 
+                $getSelisih[$i]['sisa'] = $barangMasuk[$i]->jumlah - $barangKeluar[$getIndex]['jumlah']; 
+                $getSelisih[$i]['nama_barang'] = $barangMasuk[$i]->barang->nama_barang;
+                $getSelisih[$i]['kategori'] = $barangMasuk[$i]->barang->nama_category;
+                $getSelisih[$i]['satuan'] = $barangMasuk[$i]->barang->satuan;
+            } else {
+                $getSelisih[$i]['kode_barang'] = $barangMasuk[$i]->jumlah;
+                $getSelisih[$i]['sisa'] = $barangMasuk[$i]->jumlah;
+                $getSelisih[$i]['nama_barang'] = $barangMasuk[$i]->barang->nama_barang;
+                $getSelisih[$i]['kategori'] = $barangMasuk[$i]->barang->nama_category;
+                $getSelisih[$i]['satuan'] = $barangMasuk[$i]->barang->satuan;
+            }
+        }
+
+        return view('item.cetakOpname', [
+            'data' => $getSelisih
+        ]);
     }
 }

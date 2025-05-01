@@ -5,7 +5,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Riwayat Pembelian {{ $supplier->nama }}</h4>
+                    <h4 class="card-title">Riwayat Pembelian {{ $costumer->nama }}</h4>
 
                     @if (session()->has('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -29,7 +29,7 @@
                             </thead>
 
                             <tbody>
-                                @foreach ($supplier->itemReceived as $item)
+                                @foreach ($costumer->itemLeaving as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->kode_barang }}</td>
