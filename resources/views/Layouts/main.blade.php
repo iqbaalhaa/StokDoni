@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="{{ asset('template/css/style.css') }}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('template/images/favicon.png') }}" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
@@ -32,14 +35,16 @@
                         <span class="mdi mdi-menu"></span>
                     </button>
                     <div class="navbar-brand-wrapper">
-                        <a class="navbar-brand brand-logo" href="index.html"><img src="{{ asset('template/images/logo.png') }}"
-                                alt="logo" style="border-radius: 8px;" /></a>
-                        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('template/images/logo.png') }}"
-                                alt="logo" style="border-radius: 8px;" /></a>
+                        <a class="navbar-brand brand-logo" href="index.html"><img
+                                src="{{ asset('template/images/logo.png') }}" alt="logo"
+                                style="border-radius: 8px;" /></a>
+                        <a class="navbar-brand brand-logo-mini" href="index.html"><img
+                                src="{{ asset('template/images/logo.png') }}" alt="logo"
+                                style="border-radius: 8px;" /></a>
                     </div>
                     <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Welcome back, {{ Auth::user()->nama }}</h4>
                     <ul class="navbar-nav navbar-nav-right">
-                    <li class="nav-item nav-profile dropdown">
+                        <li class="nav-item nav-profile dropdown">
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
                                 id="profileDropdown">
                                 <img src="{{ asset('template/images/faces/face5.jpg') }}" alt="profile" />

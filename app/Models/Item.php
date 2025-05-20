@@ -17,4 +17,8 @@ class Item extends Model
         'nama_category'
     ];
 
+    public function stokMasuk() {
+        return $this->hasMany(ReceivedItem::class, 'kode_barang', 'kode_barang');
+    }
+
 }

@@ -10,6 +10,8 @@ use App\Http\Controllers\ReceivedItemController;
 use App\Http\Controllers\SupplierController;
 use App\Models\Costumer;
 use App\Models\LeavingItem;
+use App\Models\Item;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +26,86 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+
+    $items = Item::with('stokMasuk')->get();
+    
+    $data = [];
+    $labelPersen = [];
+    $label = [];
+
+    $show = false;
+    $totalSemuaItem = 0;
+
+    $totalJumlahNilai = 0;
+    for($i = 0; $i < count($items); $i++){
+        $show = true;
+        $data[$i]['nama_barang'] = $items[$i]['nama_barang'];
+        $data[$i]['harga_beli'] = $items[$i]['harga_beli'];
+
+        $length = count($items[$i]->stokMasuk);
+        $totalJumlahPeritem = 0;
+
+        for($j = 0; $j < $length; $j++) {
+            $totalJumlahPeritem += $items[$i]->stokMasuk[$j]['jumlah'];
+        }
+        
+        $data[$i]['total_jumlah'] = $totalJumlahPeritem;
+        $totalSemuaItem += $totalJumlahPeritem;
+        $data[$i]['nilai'] = $totalJumlahPeritem * $items[$i]['harga_beli'];
+        $totalJumlahNilai += $data[$i]['nilai'];
+    }
+
+    for ($i = 0; $i < count($data); $i++) {
+        $data[$i]['persenan'] = $data[$i]['nilai'] / $totalJumlahNilai;
+    }
+
+    // Sorting : 
+    for ($i = 0; $i < count($data); $i++) {
+        for ($j = 0; $j < (count($data) - 1); $j++) {
+            if ($data[$j]['nilai'] < $data[$j + 1]['nilai']) {
+                $swap = $data[$j];
+                $data[$j] = $data[$j + 1];
+                $data[$j + 1] = $swap;
+            }
+        }
+    }
+
+    // Categories : 
+    $persenan = 0;
+    for ($i = 0; $i < count($data); $i++) {
+        $persenan += $data[$i]['persenan'];
+        $data[$i]['total_persen'] = $persenan;
+
+        $labelPersen[] = $data[$i]['persenan'];
+        $label[] = $data[$i]['nama_barang'];
+
+        // if ($persenan <= 70/100) {
+        //     $data[$i]['grade'] = 'A';
+        // } else if ($persenan <= 90/100) {
+        //     $data[$i]['grade'] = 'B';
+        // } else {
+        //     $data[$i]['grade'] = 'C';
+        // }
+
+        if ($persenan <= 70/100) {
+            $data[$i]['grade'] = 'A';
+        } else if ($persenan <= 80/100) {
+            $data[$i]['grade'] = 'B';
+        } else {
+            $data[$i]['grade'] = 'C';
+        }
+    }
+
+    return view('welcome', [
+        'data' => $data, 
+        'show' => $show, 
+        'totalSemuaItem' => $totalSemuaItem, 
+        'totalJumlahNilai' => $totalJumlahNilai, 
+        'label' => $label,
+        'labelPersenan' => $labelPersen,
+    ]);
+
 })->middleware('auth');
 
 Route::resource('category', CategoryController::class)->middleware('auth');

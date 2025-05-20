@@ -75,7 +75,7 @@
                     <h4 class="card-title">Analisis ABC Stok</h4>
                     <div class="row">
                         <div class="col-md-6">
-                            <canvas id="pieChart" height="300"></canvas>
+                            <canvas id="pieChartt" height="300"></canvas>
                         </div>
                         <div class="col-md-6">
                             <div class="mt-4">
@@ -108,4 +108,58 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Barang</th>
+                        <th>Harga</th>
+                        <th>Stok</th>
+                        <th>Total Nilai</th>
+                        <th>Persentase</th>
+                        <th>Kategori</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($data as $item)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item['nama_barang'] }}</td>
+                            <td>{{ $item['harga_beli'] }}</td>
+                            <td>{{ $item['total_jumlah'] }}</td>
+                            <td>{{ $item['nilai'] }}</td>
+                            <td>{{ ceil($item['persenan'] * 100) . ' %' }}</td>
+                            <td>{{ $item['grade'] }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('pieChartt').getContext('2d');
+
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: <?php echo json_encode($label); ?>,
+                datasets: [{
+                    label: 'Klasifikasi Item',
+                    data: <?php echo json_encode($labelPersenan); ?>,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 @endsection

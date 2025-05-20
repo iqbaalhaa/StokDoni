@@ -9,7 +9,6 @@ use App\Models\LeavingItem;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use function PHPUnit\Framework\isEmpty;
 
 class ItemController extends Controller
 {

@@ -94,7 +94,6 @@ class ReceivedItemController extends Controller
     public function cetak(Request $request) {
         $data = ReceivedItem::with('barang')->whereBetween('created_at', [$request->tanggal_awal, $request->tanggal_akhir])->latest()->get();       
         
-        // return $data;
         return view('received.cetak', [
             'data' => $data,
             'tanggal_awal' => $request->tanggal_awal,
