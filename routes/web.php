@@ -12,6 +12,8 @@ use App\Models\Costumer;
 use App\Models\LeavingItem;
 use App\Models\Item;
 
+use App\Models\ReceivedItem;
+use App\Models\Supplier;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -88,9 +90,9 @@ Route::get('/', function () {
         //     $data[$i]['grade'] = 'C';
         // }
 
-        if ($persenan <= 70/100) {
+        if ($persenan <= 80/100) {
             $data[$i]['grade'] = 'A';
-        } else if ($persenan <= 80/100) {
+        } else if ($persenan <= 90/100) {
             $data[$i]['grade'] = 'B';
         } else {
             $data[$i]['grade'] = 'C';
@@ -104,6 +106,9 @@ Route::get('/', function () {
         'totalJumlahNilai' => $totalJumlahNilai, 
         'label' => $label,
         'labelPersenan' => $labelPersen,
+        'totalTransaksiBarangMasuk' => ReceivedItem::whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->count(), 
+        'totalSuplier' => Supplier::count(),
+        'totalPelanggan' => Costumer::count()
     ]);
 
 })->middleware('auth');

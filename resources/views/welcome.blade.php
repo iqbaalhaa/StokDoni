@@ -7,9 +7,9 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
                         <div>
-                            <h6 class="card-title mb-0">Total Transaksi</h6>
-                            <h2 class="mt-2 mb-0">1,250</h2>
-                            <small class="text-success">+2.5% dari bulan lalu</small>
+                            <h6 class="card-title mb-0">Total Transaksi Barang Masuk Bulan Ini</h6>
+                            <h2 class="mt-2 mb-0">{{ $totalTransaksiBarangMasuk }}</h2>
+                            {{-- <small class="text-success">+2.5% dari bulan lalu</small> --}}
                         </div>
                         <div class="card-icon bg-primary text-white">
                             <i class="mdi mdi-cart-outline"></i>
@@ -24,8 +24,8 @@
                     <div class="d-flex align-items-center justify-content-between">
                         <div>
                             <h6 class="card-title mb-0">Total Supplier</h6>
-                            <h2 class="mt-2 mb-0">45</h2>
-                            <small class="text-success">+3 supplier baru</small>
+                            <h2 class="mt-2 mb-0">{{ $totalSuplier }}</h2>
+                            {{-- <small class="text-success">+3 supplier baru</small> --}}
                         </div>
                         <div class="card-icon bg-success text-white">
                             <i class="mdi mdi-account-multiple"></i>
@@ -40,8 +40,8 @@
                     <div class="d-flex align-items-center justify-content-between">
                         <div>
                             <h6 class="card-title mb-0">Total Pelanggan</h6>
-                            <h2 class="mt-2 mb-0">850</h2>
-                            <small class="text-success">+5% dari bulan lalu</small>
+                            <h2 class="mt-2 mb-0">{{ $totalPelanggan }}</h2>
+                            {{-- <small class="text-success">+5% dari bulan lalu</small> --}}
                         </div>
                         <div class="card-icon bg-info text-white">
                             <i class="mdi mdi-account-group"></i>
@@ -56,8 +56,8 @@
                     <div class="d-flex align-items-center justify-content-between">
                         <div>
                             <h6 class="card-title mb-0">Total Stok</h6>
-                            <h2 class="mt-2 mb-0">2,500</h2>
-                            <small class="text-danger">-2% dari bulan lalu</small>
+                            <h2 class="mt-2 mb-0">{{ $totalSemuaItem }}</h2>
+                            {{-- <small class="text-danger">-2% dari bulan lalu</small> --}}
                         </div>
                         <div class="card-icon bg-warning text-white">
                             <i class="mdi mdi-package-variant"></i>
@@ -79,27 +79,30 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mt-4">
-                                <h5 class="mb-4">Klasifikasi Inventory</h5>
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="mb-4">Klasifikasi Inventory</h5>
+                                    <h5 class="mb-4">Total Nilai : {{ $totalJumlahNilai }}</h5>
+                                </div>
                                 <div class="d-flex justify-content-between mb-3">
                                     <div class="d-flex align-items-center">
                                         <div class="color-bullet bg-primary me-2"></div>
                                         <h6 class="mb-0">Kategori A (High Value)</h6>
                                     </div>
-                                    <h6 class="mb-0">20% Item (80% Nilai)</h6>
+                                    <h6 class="mb-0">(1% - 80% Nilai)</h6>
                                 </div>
                                 <div class="d-flex justify-content-between mb-3">
                                     <div class="d-flex align-items-center">
                                         <div class="color-bullet bg-success me-2"></div>
                                         <h6 class="mb-0">Kategori B (Medium Value)</h6>
                                     </div>
-                                    <h6 class="mb-0">30% Item (15% Nilai)</h6>
+                                    <h6 class="mb-0">(81% - 90% Nilai)</h6>
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex align-items-center">
                                         <div class="color-bullet bg-warning me-2"></div>
                                         <h6 class="mb-0">Kategori C (Low Value)</h6>
                                     </div>
-                                    <h6 class="mb-0">50% Item (5% Nilai)</h6>
+                                    <h6 class="mb-0">(91% - 100% Nilai)</h6>
                                 </div>
                             </div>
                         </div>
