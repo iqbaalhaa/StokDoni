@@ -59,7 +59,7 @@ Route::get('/', function () {
     }
 
     for ($i = 0; $i < count($data); $i++) {
-        $data[$i]['persenan'] = $data[$i]['nilai'] / $totalJumlahNilai;
+        $data[$i]['persenan'] = $totalJumlahNilai > 0 ? ($data[$i]['nilai'] / $totalJumlahNilai) : 0;
     }
 
     // Sorting : 
